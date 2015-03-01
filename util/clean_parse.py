@@ -4,8 +4,7 @@ Created on Feb 27, 2015
 @author: Aaron Levine
 '''
 
-import re
-import os
+import re, os, subprocess
 
 def gen_clean_files(pos_path):
     # make folder
@@ -23,16 +22,6 @@ def gen_clean_files(pos_path):
                         line = '<s> {} </s>'.format(' '.join([t for t, _ in tok_pos]))
                         fw.write(line + '\n')
 
-def gen_syntax_files(clean_path):
-    # make folder
-    syn_path = re.sub('clean-files', 'syntax-files', clean_path)
-    if not os.path.exists(syn_path):
-        os.makedirs(syn_path)
-
-    # make files
-    
-
-
 if __name__ == "__main__":
-    
+        
     gen_clean_files('../data/postagged-files')
