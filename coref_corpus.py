@@ -45,7 +45,7 @@ class Sentence(tuple):
         return '<{} with {} tokens>'.format(self.__class__.__name__, len(self))
     
     def __str__(self):
-        return ' '.join(t.text.encode('utf-8') for t in self)
+        return ' '.join('/'.join([t.text.encode('utf-8'), t.pos]) for t in self)
 
 class MentionPair(object):
     """A tuple-like object for working with coreference candidates:
