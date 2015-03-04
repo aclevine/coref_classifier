@@ -204,7 +204,10 @@ class Corpus(object):
                 print 'Processing {} ...'.format(current_document)
             a = [document] + items[1:6]
             b = [document] + items[6:11]
-            label = items[-1]
+            if len(items) == 12:
+                label = items[-1]
+            else:
+                label = None
             try:
                 mention_a = Mention(*a)
                 mention_b = Mention(*b)
