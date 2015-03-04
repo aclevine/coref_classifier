@@ -66,7 +66,7 @@ class MentionPair(object):
     def _args(self):
         """Returns an ordered list of arguments for string representation."""
         args = (
-            self.document,
+            self.document.name,
             self.mentions[0],
             self.mentions[1],
             self.label
@@ -104,11 +104,10 @@ class Mention(object):
     def _args(self):
         """Returns an ordered list of arguments for string representation."""
         args = (
-            self.document,
             self.sentence_index,
             self.start,
             self.end,
-            self.ace_type,
+            self.entity_type,
             self.text
         )
         return ', '.join(map(repr, args))
@@ -217,7 +216,7 @@ class Corpus(object):
                 print b
                 break
             pair = MentionPair(document, mention_a, mention_b, label)
-            self.mention_pairs[document.name] = pair
+            self.mention_pairs[document.name].append(pair)
         self.documents = sorted(self.documents)
         print 'Processed {n} documents in total'.format(
             n=len(self.documents)
@@ -238,3 +237,8 @@ if __name__ == '__main__':
         sentence=sample_sentence,
         tree=sample_tree
     )
+    print """Mention pairs from {doc} :""".format(
+        doc=sample_doc
+    )
+    for pair in corpus.mention_pairs[sample_doc.name]:
+        print pair
