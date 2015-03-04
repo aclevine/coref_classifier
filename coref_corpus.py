@@ -187,20 +187,20 @@ class Corpus(object):
         self.pos_data_dir = os.path.join(self.data_dir, pos_data_dir)
         self.tree_data_dir = os.path.join(self.data_dir, tree_data_dir)
         self.mention_pairs = defaultdict(list)
-        self.documents = list()
         self.process_documents()
     
     def process_documents(self):
         """Populates the document list and the mention pairs dictionary."""
         with open(self.coref_data, 'rb') as file:
             lines = filter(None, file.read().split('\n'))
+        self.documents = set()
         current_document = None
         for line in lines:
             items = line.split(' ')
             document = Document(items[0])
-            self.documents.append(document)
             if current_document != document.name:
                 current_document = document.name
+                self.documents.add(document)
                 print 'Processing {} ...'.format(current_document)
             a = [document] + items[1:6]
             b = [document] + items[6:11]
@@ -215,6 +215,10 @@ class Corpus(object):
                 break
             pair = MentionPair(document, mention_a, mention_b, label)
             self.mention_pairs[document.name] = pair
+        self.documents = sorted(self.documents)
+        print 'Processed {n} documents in total'.format(
+            n=len(self.documents)
+        )
 
 if __name__ == '__main__':
     corpus = Corpus('coref-trainset.gold', data_dir='data')
