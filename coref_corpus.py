@@ -48,8 +48,8 @@ class Sentence(tuple):
         return ' '.join(t.text.encode('utf-8') for t in self)
 
 class MentionPair(object):
-    """A mention pair is a tuple-like object:
-        document : the document the pair occurs in
+    """A tuple-like object for working with coreference candidates:
+        document : the document the MentionPair occurs in
         mention_a : the first Mention in the pair
         mention_b : the second Mention in the pair
         label : a label indicating whether the pair of mentions
@@ -67,7 +67,8 @@ class MentionPair(object):
         """Returns an ordered list of arguments for string representation."""
         args = (
             self.document,
-            self.index,
+            self.mentions[0],
+            self.mentions[1],
             self.label
         )
         return ', '.join(map(repr, args))
@@ -75,12 +76,12 @@ class MentionPair(object):
 class Mention(object):
     """A class for working with individual co-reference mention candidates:
         document : the document that the mention occurs in
-        sentence_index : integer indicating which sentence the mention occurs in
+        sentence_index : integer indicating index of the sentence that
+                         the Mention occurs in
         position_index : a pair of integers indicating the position of
                          the Mention within the sentence it occurs in
         text : a string representation of the token
-        pos : a string representing the POS tag of the token
-        ace_type : a string representing the ACE entity type tag"""
+        entity_type : string representing the ACE entity type of the mention"""
     def __init__(
         self,
         document,
@@ -139,7 +140,7 @@ class Document(object):
         )
     
     def get_sentences(self):
-        """Return POS tagged tokens for each sentence in the document."""
+        """Generates Sentences (lists of POS tagged tokens) for the document."""
         sentence_data_path = os.path.join(
             self.pos_data_dir, self.name + '.raw.pos'
         )
@@ -163,7 +164,7 @@ class Document(object):
             yield sentence
     
     def get_trees(self):
-        """Return Tree objects for each sentence in the document."""
+        """Generates Tree objects for each sentence in the document."""
         tree_data_path = os.path.join(
             self.tree_data_dir, self.name + '.raw.syn'
         )
@@ -190,6 +191,7 @@ class Corpus(object):
         self.process_documents()
     
     def process_documents(self):
+        """Populates the document list and the mention pairs dictionary."""
         with open(self.coref_data, 'rb') as file:
             lines = filter(None, file.read().split('\n'))
         current_document = None
