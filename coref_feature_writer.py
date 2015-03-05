@@ -4,7 +4,7 @@ Created on Mar 4, 2015
 @author: Aaron Levine
 '''
 from coref_corpus import *
-
+from features import *
 
 class FeatWriter(object):
      
@@ -26,32 +26,32 @@ class FeatWriter(object):
         with open(output_path, 'w+') as fo:
             for doc, pair_list in corpus.mention_pairs.iteritems():
                 for pair in pair_list:
-                    # EXTRACT FEATURES
+                    # FEATURES
                     for feat_func in self.features:
                         feat = feat_func(pair)
                         # feat = codebook(feat)
-                        fo.write(feat)
+                        fo.write(str(feat))
                         fo.write(seperator)
                     if train:
-                        # WRITE LABEL
+                        # LABEL
                         fo.write(pair.label)
                     fo.write('\n')
 
+
 # TESTING
 def dummy_func(pair):
-    return '1'
+    return 1
 
 def dummy_func_2(pair):
-    return '0'
+    return 0
 
 
-        
 if __name__ == "__main__":
     
     features = [
                 # FEATURES HERE
-                dummy_func,
-                dummy_func_2,
+                pos_match,
+                simple_pos_match
                 ]
     
     extractor = FeatWriter(features, 'coref-trainset.gold')

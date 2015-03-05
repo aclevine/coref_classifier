@@ -139,7 +139,7 @@ class Document(object):
         )
     
     def get_sentences(self):
-        """Generates Sentences (lists of POS tagged tokens) for the document."""
+        """Generates Sentences (list of pos / text Token objects) for the document."""
         sentence_data_path = os.path.join(
             self.pos_data_dir, self.name + '.raw.pos'
         )
@@ -231,18 +231,18 @@ if __name__ == '__main__':
     doc_index = 0
     sentence_index = 10
     sample_doc = corpus.documents[doc_index]
-#     sample_sentence = list(sample_doc.sentences)[sentence_index]
-#     sample_tree = list(sample_doc.trees)[sentence_index]
-#     print """Samples from {doc} :
-#     sentence {i} : {sentence}
-#     tree {i} : {tree}""".format(
-#         doc=sample_doc,
-#         i=sentence_index,
-#         sentence=sample_sentence,
-#         tree=sample_tree
-#     )
-#     print """Mention pairs from {doc} :""".format(
-#         doc=sample_doc
-#     )
+    sample_sentence = list(sample_doc.sentences)[sentence_index]
+    sample_tree = list(sample_doc.trees)[sentence_index]
+    print """Samples from {doc} :
+    sentence {i} : {sentence}
+    tree {i} : {tree}""".format(
+        doc=sample_doc,
+        i=sentence_index,
+        sentence=sample_sentence,
+        tree=sample_tree
+    )
+    print """Mention pairs from {doc} :""".format(
+        doc=sample_doc
+    )
     for pair in corpus.mention_pairs[sample_doc.name]:
         print pair
