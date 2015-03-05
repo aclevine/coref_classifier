@@ -179,16 +179,17 @@ class Corpus(object):
         coref_data,
         data_dir='data',
         pos_data_dir='postagged-files',
-        tree_data_dir='syntax-files'
+        tree_data_dir='syntax-files',
+        verbose=0
     ):
         self.data_dir = data_dir
         self.coref_data = os.path.join(self.data_dir, coref_data)
         self.pos_data_dir = os.path.join(self.data_dir, pos_data_dir)
         self.tree_data_dir = os.path.join(self.data_dir, tree_data_dir)
         self.mention_pairs = defaultdict(list)
-        self.process_documents()
+        self.process_documents(verbose)
     
-    def process_documents(self):
+    def process_documents(self, verbose=0):
         """Populates the document list and the mention pairs dictionary."""
         with open(self.coref_data, 'rb') as file:
             lines = filter(None, file.read().split('\n'))
@@ -200,7 +201,8 @@ class Corpus(object):
             if current_document != document.name:
                 current_document = document.name
                 self.documents.add(document)
-                print 'Processing {} ...'.format(current_document)
+                if verbose:
+                    print 'Processing {} ...'.format(current_document)
             a = [document] + items[1:6]
             b = [document] + items[6:11]
             if len(items) == 12:
@@ -218,27 +220,29 @@ class Corpus(object):
             pair = MentionPair(document, mention_a, mention_b, label)
             self.mention_pairs[document.name].append(pair)
         self.documents = sorted(self.documents)
-        print 'Processed {n} documents in total'.format(
-            n=len(self.documents)
-        )
+        if verbose:
+            print 'Processed {n} documents in total'.format(
+                                                            n=len(self.documents)
+                                                            )
 
 if __name__ == '__main__':
-    corpus = Corpus('coref-trainset.gold', data_dir='data')
+    
+    corpus = Corpus('coref-trainset.gold', data_dir='data', verbose=1)
     doc_index = 0
     sentence_index = 10
     sample_doc = corpus.documents[doc_index]
-    sample_sentence = list(sample_doc.sentences)[sentence_index]
-    sample_tree = list(sample_doc.trees)[sentence_index]
-    print """Samples from {doc} :
-    sentence {i} : {sentence}
-    tree {i} : {tree}""".format(
-        doc=sample_doc,
-        i=sentence_index,
-        sentence=sample_sentence,
-        tree=sample_tree
-    )
-    print """Mention pairs from {doc} :""".format(
-        doc=sample_doc
-    )
+#     sample_sentence = list(sample_doc.sentences)[sentence_index]
+#     sample_tree = list(sample_doc.trees)[sentence_index]
+#     print """Samples from {doc} :
+#     sentence {i} : {sentence}
+#     tree {i} : {tree}""".format(
+#         doc=sample_doc,
+#         i=sentence_index,
+#         sentence=sample_sentence,
+#         tree=sample_tree
+#     )
+#     print """Mention pairs from {doc} :""".format(
+#         doc=sample_doc
+#     )
     for pair in corpus.mention_pairs[sample_doc.name]:
         print pair

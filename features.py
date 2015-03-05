@@ -3,35 +3,7 @@ Created on Mar 3, 2015
 
 @author: Aaron Levine
 
-
-WE NEED THIS DATA IN OBJECTS:
-    
-pair: 
-    entity_1: first entity object
-    entity_2: second entity object
-    is_coref: yes / no
-
-
-entity: 
-    <FROM GOLD DATA>
-    tokens: '_' joined offsets   # ex: "Artificial_Intelligence_Lab"  
-    doc_name: file name
-    sent_offset: number
-    start_offset: number
-    end_offset: number
-
-    <FROM POSTAGGED-FILES>    
-    sent_tokens: a list of tokens in same sentence # can key into using offsets
-    sent_pos: a list of those tokens POS tags # can key into using offsets
-
-
-    <FROM SYNTAX-FILES>
-    sent_syntax: parsed syntax tree # can key into using offsets
-
 '''
-
-
-
 
 def token_match(pair):
     """do tokens match each other?"""
