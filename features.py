@@ -32,12 +32,12 @@ def pos_match(pair, simple=False, window_left = 0, window_right = 0):
                                      mention_b.start+window_left, 
                                      mention_b.end+window_right)
     if simple:
-        pos_a = [tok.pos[0] for tok in tokens_a]
+        pos_a = {tok.pos[0] for tok in tokens_a}
         pos_b = {tok.pos[0] for tok in tokens_b}
     else:
-        pos_a = [tok.pos for tok in tokens_a]
+        pos_a = {tok.pos for tok in tokens_a}
         pos_b = {tok.pos for tok in tokens_b}
-    return len([pos for pos in pos_a if pos in pos_b])
+    return len(pos_a.intersection(pos_b))
 
 def number_match(pair, simple=False, window_left = 0, window_right = 0):
     """ how many parts of speech match? -potential backoff feature"""
@@ -49,11 +49,14 @@ def number_match(pair, simple=False, window_left = 0, window_right = 0):
                                      mention_b.end+window_right)
     pos_a = [tok.pos for tok in tokens_a]
     pos_b = [tok.pos for tok in tokens_b]
-    if pos_a[-1][-1] == 'S' and pos_b[-1][-1] != 'S' or \
-    pos_a[-1][-1] != 'S' and pos_b[-1][-1] == 'S':
-        return 0
+    if pos_a and pos_b:
+        if pos_a[-1][-1] == 'S' and pos_b[-1][-1] != 'S' or \
+        pos_a[-1][-1] != 'S' and pos_b[-1][-1] == 'S':
+            return 0
+        else:
+            return 1
     else:
-        return 1
+        return 0
 
 def extend_pos_match(pair):
     """ how many parts of speech match? -potential backoff feature"""
@@ -117,7 +120,7 @@ def token_inbetween(pair, targets={'is'}, window=3):
                                           mention_a.end, mention_b.end, 
                                           0, 0)
     
-        return len([tok for tok in inbetween_tokens if tok in targets])
+        return len([tok for tok in inbetween_tokens if tok.text in targets])
     return 0
 
 def token_inbetween_binary(pair, targets={'is'}):

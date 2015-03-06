@@ -2,7 +2,7 @@
 (S1 (NP (NN Watts-Gridiron)))
 (S1 (S (NP (NNP Watts)) (VP (VBZ Jokes) (PP (IN About) (NP (NNP Election) (NNP Impasse))))))
 (S1 (NP (NP (NNP WHITE) (NNP SULPHUR)) (NP (NP (NNP SPRINGS)) (, ,) (NP (NNP W.Va))) (. .)))
-(S1 (NP (PRN (-LRB- -LRB-) (NP (NNP AP)) (-RRB- -RRB-)) (NNP Republican) (NNP Rep) (. .)))
+(S1 (S (-LRB- -LRB-) (NP (NNP AP)) (-RRB- -RRB-) (VP (VBD _) (NP (NNP Republican) (NNP Rep))) (. .)))
 (S1 (S (NP (NNP J.C.) (NNP Watts)) (VP (VBD joked) (NP (NNP Saturday) (NN night)) (SBAR (IN that) (S (NP (PRP he)) (VP (AUX had) (NP (NP (NP (JJ revised) (NNS returns)) (PP (IN on) (NP (DT the) (JJ presidential) (NN election)))) (: :) (NP (`` ``) (NP (NNP Al) (NNP Gore)) (, ,) (NP (CD 9,834) (NNS lawsuits)))))))) (. .)))
 (S1 (FRAG (NP (NNP George) (NNP W.) (NNP Bush)) (, ,) (NP (CD 7,652)) (. .) ('' '')))
 (S1 (S (NP (NP (NNP Watts)) (, ,) (NP (NP (NN chairman)) (PP (IN of) (NP (DT the) (NNP House) (NNP Republican) (NNP Conference)))) (, ,)) (VP (VBD bantered) (PP (IN about) (NP (DT the) (NNP Florida) (NN election) (NN dispute))) (PP (IN in) (NP (NP (DT a) (NN speech)) (VP (VBN prepared) (PP (IN for) (NP (NP (DT a) (NN dinner)) (PP (IN of) (NP (DT The) (NN Gridiron) (NN Club))) (PP (IN at) (NP (DT the) (NNP Greenbrier) (NNP Hotel))))))))) (. .)))

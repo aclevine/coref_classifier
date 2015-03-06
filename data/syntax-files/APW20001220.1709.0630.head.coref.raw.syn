@@ -1,7 +1,7 @@
 (S1 (NP (NP (CD APW20001220.1709.0630) (NN NEWS) (NN STORY)) (QP (CD 2000-12-20) (CD 17:44:45))))
 (S1 (NP (NNS Wall-Street-Stocks)))
 (S1 (NP (NP (JJ Big) (NNPS Movers)) (PP (IN in) (NP (DT the) (NNP Stock) (NN Market)))))
-(S1 (NP (NP (NP (NNP NEW) (NNP YORK)) (PRN (-LRB- -LRB-) (NP (NNP AP)) (-RRB- -RRB-))) (NP (NP (NNS Stocks)) (SBAR (WHNP (WDT that)) (S (VP (AUX were) (VP (VP (VBG moving) (ADVP (RB substantially))) (CC or) (VP (VBG trading) (ADVP (RB heavily)) (NP (NNP Wednesday)) (PP (IN on) (NP (NP (DT the) (NNP New) (NNP York) (NNP Stock) (NNP Exchange)) (CC and) (NP (DT the) (NNP Nasdaq) (NNP Stock) (NN Market)))))))))) (. .)))
+(S1 (S (NP (NP (NNP NEW) (NNP YORK)) (PRN (-LRB- -LRB-) (NP (NNP AP)) (-RRB- -RRB-))) (VP (VBD _) (NP (NP (NNS Stocks)) (SBAR (WHNP (WDT that)) (S (VP (AUX were) (VP (VP (VBG moving) (ADVP (RB substantially))) (CC or) (VP (VBG trading) (ADVP (RB heavily)) (NP (NNP Wednesday)) (PP (IN on) (NP (NP (DT the) (NNP New) (NNP York) (NNP Stock) (NNP Exchange)) (CC and) (NP (DT the) (NNP Nasdaq) (NNP Stock) (NN Market))))))))))) (. .)))
 (S1 (NP (NNP NYSE)))
 (S1 (NP (NP (NNP International) (NNP Paper) (NNP Co) (. .)) (, ,) (ADVP (RB down) (NP (CD 69) (NNS cents)) (PP (IN at) (NP ($ $) (CD 38.81))))))
 (S1 (S (NP (NNP International) (NNP Paper)) (PP (IN on) (NP (NNP Wednesday))) (VP (VBD warned) (SBAR (IN that) (S (NP (JJ fourth-quarter) (NNS earnings)) (VP (MD will) (VP (VB fall) (ADVP (RB short) (PP (IN of) (NP (NNS expectations))))))))) (. .)))
