@@ -39,6 +39,22 @@ def pos_match(pair, simple=False, window_left = 0, window_right = 0):
         pos_b = {tok.pos for tok in tokens_b}
     return len([pos for pos in pos_a if pos in pos_b])
 
+def number_match(pair, simple=False, window_left = 0, window_right = 0):
+    """ how many parts of speech match? -potential backoff feature"""
+    mention_a, mention_b = pair.mentions
+    tokens_a, tokens_b = load_tokens(pair, 
+                                     mention_a.start+window_left, 
+                                     mention_a.end+window_right, 
+                                     mention_b.start+window_left, 
+                                     mention_b.end+window_right)
+    pos_a = [tok.pos for tok in tokens_a]
+    pos_b = [tok.pos for tok in tokens_b]
+    if pos_a[-1][-1] == 'S' and pos_b[-1][-1] != 'S' or \
+    pos_a[-1][-1] != 'S' and pos_b[-1][-1] == 'S':
+        return 0
+    else:
+        return 1
+
 def extend_pos_match(pair):
     """ how many parts of speech match? -potential backoff feature"""
     return pos_match(pair, simple=True, window_left=2, window_right=2)
@@ -118,7 +134,7 @@ def predicate_nominative(pair):
 
 def relative_pronoun(pair):
     '''check for 'which' / 'who' between items'''
-    return token_inbetween(pair, {'which', 'who'})
+    return token_inbetween(pair, {'which', 'who', 'that'})
 
 # def role_appositives(pair):
 #     '''check for role noun and proper noun next to each other'''
