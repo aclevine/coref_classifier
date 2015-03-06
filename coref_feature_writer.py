@@ -38,14 +38,6 @@ class FeatWriter(object):
                     fo.write('\n')
 
 
-# TESTING
-def dummy_func(pair):
-    return 1
-
-def dummy_func_2(pair):
-    return 0
-
-
 if __name__ == "__main__":
     
     features = [
