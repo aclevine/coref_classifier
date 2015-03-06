@@ -51,22 +51,22 @@ if __name__ == "__main__":
     
     features = [
                 # FEATURES HERE
-                string_match,
-                token_match,
-                entity_type_match,
-                pos_match,
-                number_match,
-                simple_pos_match,
-                appositives,
-                predicate_nominative,
-                relative_pronoun,
-#                 acronym_first,
-#                 token_inbetween,
-#                 extend_pos_match,
-#                 extend_simple_pos_match,
+#                 string_match,
+#                 token_match,
+#                 entity_type_match,
+#                 pos_match,
+#                 number_match,
+#                 simple_pos_match,
+#                 appositives,
+#                 predicate_nominative,
+#                 relative_pronoun,
+                acronym_first,
+                token_inbetween,
+                extend_pos_match,
+                extend_simple_pos_match,
                 ]
 
-    output_name = "3-5-15"
+    output_name = "features/3-6-15"
     
     extractor = FeatWriter(features, 'coref-trainset.gold',
                            output_name=output_name)

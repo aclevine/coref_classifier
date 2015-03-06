@@ -1,0 +1,79 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.Logistic -R 1.0E-8 -M -1
+Relation:     coref
+Instances:    73049
+Attributes:   10
+              string_match
+              token_match
+              entity_type_match
+              pos_match
+              number_match
+              simple_pos_match
+              appositives
+              predicate_nominative
+              relative_pronoun
+              class
+Test mode:user supplied test set: size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                                        Class
+Variable                                  yes
+=============================================
+string_match                          -0.4901
+token_match                            3.8937
+entity_type_match                     23.4886
+pos_match                             -0.7205
+number_match                           0.7824
+simple_pos_match                        0.221
+appositives                            4.4126
+predicate_nominative                   4.4769
+relative_pronoun                       4.6115
+Intercept                            -27.9184
+
+
+Odds Ratios...
+                                        Class
+Variable                                  yes
+=============================================
+string_match                           0.6126
+token_match                           49.0942
+entity_type_match       1.5884282597005383E10
+pos_match                              0.4865
+number_match                           2.1867
+simple_pos_match                       1.2474
+appositives                           82.4801
+predicate_nominative                  87.9647
+relative_pronoun                     100.6371
+
+
+Time taken to build model: 3.74 seconds
+
+=== Evaluation on test set ===
+=== Summary ===
+
+Correctly Classified Instances       43562               92.4059 %
+Incorrectly Classified Instances      3580                7.5941 %
+Kappa statistic                          0.1757
+Mean absolute error                      0.0768
+Root mean squared error                  0.2477
+Relative absolute error                 80.5281 %
+Root relative squared error             88.0319 %
+Total Number of Instances            47142     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.112     0.004      0.724     0.112     0.194      0.903    yes
+                 0.996     0.888      0.927     0.996     0.96       0.903    no
+Weighted Avg.    0.924     0.816      0.91      0.924     0.898      0.903
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+   430  3416 |     a = yes
+   164 43132 |     b = no
+
