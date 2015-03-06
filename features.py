@@ -93,18 +93,20 @@ def acronym_first(pair):
     else:
         return False
 
-def token_inbetween(pair, targets=['is']):
+def token_inbetween(pair, targets={'is'}, window=3):
     mention_a, mention_b = pair.mentions
-    if mention_a.sentence_index == mention_b.sentence_index:
+    if mention_a.sentence_index == mention_b.sentence_index \
+    and mention_b.start <= (mention_a.end + window) :
         inbetween_tokens, _ = load_tokens(pair, 
                                           mention_a.end, mention_b.end, 
                                           0, 0)
     
-    return len([tok for tok in targets if tok in inbetween_tokens])
+        return len([tok for tok in inbetween_tokens if tok in targets])
+    return 0
 
-def token_inbetween_binary(pair, targets=['is']):
+def token_inbetween_binary(pair, targets={'is'}):
     value = token_inbetween(pair, targets)
-    return bool(value)
+    return int(bool(value))
 
 def appositives(pair):
     '''check for comma between items'''
@@ -118,8 +120,6 @@ def relative_pronoun(pair):
     '''check for 'which' / 'who' between items'''
     return token_inbetween(pair, {'which', 'who'})
 
-
-
 # def role_appositives(pair):
 #     '''check for role noun and proper noun next to each other'''
 #     # return if y is proper noun and x is noun
@@ -128,4 +128,3 @@ def relative_pronoun(pair):
 # def demonyn(pair):
 #     ''' number of matching letters? '''
 #     return
-
