@@ -4,7 +4,7 @@ Created on Mar 6, 2015
 @author: Aaron Levine
 
 Function for taking an new .arff feature vector document,
-and appending it's data to the end of another feature vector document
+and appending its data to the end of another feature vector document
 run on the same dataset.
 
 FILES MUST HAVE BEEN RUN ON THE SAME DATASET!

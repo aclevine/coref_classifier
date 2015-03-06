@@ -18,10 +18,10 @@ def gen_clean_files(pos_path):
             with open( os.path.join(pos_path, pos_file), 'rb') as fr:
                 for line in filter(None,fr.read().split('\n')):
                     if bool(re.match('^\s*$',line)):
-                        fw.write('<s> {} </s>\n'.format("This is not a sentence ."))
+                        fw.write('{}\n'.format("This is not a sentence ."))
                     else:
                         tok_pos = [split_token(t_p) for t_p in line.split()]
-                        line = '<s> {} </s>'.format(' '.join([t for t, _ in tok_pos]))
+                        line = '{}'.format(' '.join([t for t, _ in tok_pos]))
                         fw.write(line + '\n')
 
 
