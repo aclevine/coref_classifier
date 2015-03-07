@@ -60,13 +60,15 @@ if __name__ == "__main__":
 #                 appositives,
 #                 predicate_nominative,
 #                 relative_pronoun,
-                acronym_first,
-                token_inbetween,
-                extend_pos_match,
-                extend_simple_pos_match,
+#                 acronym_first,
+#                 token_inbetween,
+#                 extend_pos_match,
+#                 extend_simple_pos_match,
+                same_sentence,
+                substring_match
                 ]
 
-    output_name = "features/3-6-15"
+    output_name = "features/3-7-15"
     
     extractor = FeatWriter(features, 'coref-trainset.gold',
                            output_name=output_name)

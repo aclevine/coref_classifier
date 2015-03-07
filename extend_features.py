@@ -11,9 +11,9 @@ FILES MUST HAVE BEEN RUN ON THE SAME DATASET!
 '''
 
 def extend_features(old_path, new_path, out_path):
-    with open(old_path, "w+") as fo:
-        with open(new_path, "r") as old:
-            with open(out_path, "r") as new:
+    with open(out_path, "w+") as fo:
+        with open(old_path, "r") as old:
+            with open(new_path, "r") as new:
                 # load new leaders
                 new_line = ""
                 new_attributes = []
@@ -34,11 +34,21 @@ def extend_features(old_path, new_path, out_path):
                     # join old and new feature vectors
                     else:
                         new_line = new.readline()
-                        fo.write(','.join(old_line.split(",")[:-1]) + new_line)
+                        fo.write(','.join(old_line.split(",")[:-1])+','+new_line)
                         
-if __name__ == '__old__':
-    old_path, new_path, out_path = ["3-5-15.train.arff",
-                                    "3-6-15.train.arff",
-                                    "joined.train.arff"]
+            
+if __name__ == '__main__':
+
+    old_path = "features/temp.train.arff"
+    new_path = "features/3-7-15.train.arff"
+    out_path = "features/joined.train.arff"
+     
+    extend_features(old_path, new_path, out_path)
+    
+    old_path = "features/temp.test.arff"
+    new_path = "features/3-7-15.test.arff"
+    out_path = "features/joined.test.arff"
     
     extend_features(old_path, new_path, out_path)
+
+    
