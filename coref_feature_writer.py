@@ -51,29 +51,38 @@ if __name__ == "__main__":
     
     features = [
                 # FEATURES HERE
-#                 string_match,
-#                 token_match,
-#                 entity_type_match,
-#                 pos_match,
-#                 number_match,
-#                 simple_pos_match,
-#                 appositives,
-#                 predicate_nominative,
-#                 relative_pronoun,
-#                 acronym_first,
-#                 token_inbetween,
-#                 extend_pos_match,
-#                 extend_simple_pos_match,
+                string_match,
+                token_match,
+                entity_type_match,
+                pos_match,
+                number_match,
+                simple_pos_match,
+                appositives,
+                predicate_nominative,
+                relative_pronoun,
+                acronym_first,
+                token_inbetween,
+                extend_pos_match,
+                extend_simple_pos_match,
                 same_sentence,
                 substring_match
                 ]
 
     output_name = "features/3-7-15"
-    
+
+    # train data
     extractor = FeatWriter(features, 'coref-trainset.gold',
                            output_name=output_name)
     extractor.write_features()
     
+    # dev data
     extractor = FeatWriter(features, 'coref-devset.gold',
                            output_name=output_name)
     extractor.write_features(train=False)
+    
+    # test data
+    extractor = FeatWriter(features, 'coref-testset.gold',
+                           output_name="features/final")
+    extractor.write_features(train=False)
+
+    
