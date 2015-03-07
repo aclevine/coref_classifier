@@ -147,7 +147,7 @@ def same_sentence(pair):
 def substring_match(pair):
     """check if shorter of the two mention texts is a substring of the other"""
     shortest, longest = sorted(pair.mentions, key=lambda m : len(m.text))
-    return shortest.lower() in longest.lower()
+    return shortest.text.lower() in longest.text.lower()
 
 # def role_appositives(pair):
 #     '''check for role noun and proper noun next to each other'''
