@@ -21,7 +21,7 @@ def gen_clean_files(pos_path):
                         fw.write('{}\n'.format("This is not a sentence ."))
                     else:
                         tok_pos = [split_token(t_p) for t_p in line.split()]
-                        line = '{}'.format(' '.join([t for t, _ in tok_pos]))
+                        line = '{}'.format(' '.join(['{}/{}'.format(t,p) for t, p in tok_pos]))
                         fw.write(line + '\n')
 
 
