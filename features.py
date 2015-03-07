@@ -139,6 +139,16 @@ def relative_pronoun(pair):
     '''check for 'which' / 'who' between items'''
     return token_inbetween(pair, {'which', 'who', 'that'})
 
+def same_sentence(pair):
+    """check if both mentions in the pair occur in the same sentence"""
+    mention_a, mention_b = pair.mentions
+    return mention_a.sentence_index == mention_b.sentence_index
+
+def substring_match(pair):
+    """check if shorter of the two mention texts is a substring of the other"""
+    shortest, longest = sorted(pair.mentions, key=lambda m : len(m.text))
+    return shortest.lower() in longest.lower()
+
 # def role_appositives(pair):
 #     '''check for role noun and proper noun next to each other'''
 #     # return if y is proper noun and x is noun
