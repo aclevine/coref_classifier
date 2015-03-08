@@ -23,14 +23,14 @@ for gline in goldfh.readlines():
     if not emptyline_pattern.match(gline):
         parts = gline.split()
         #print parts
-        gold_tag_list.append(parts[0])
+        gold_tag_list.append(parts[-1])
 
 
 for tline in testfh.readlines():
     if not emptyline_pattern.match(tline):
         parts = tline.split()
         #print parts
-        test_tag_list.append(parts[0])
+        test_tag_list.append(parts[-1])
 
 test_total = 0
 gold_total = 0
@@ -54,5 +54,3 @@ f = precision * recall * 2 / (precision + recall)
 
 #print correct, gold_total, test_total
 print 'precision =', precision, 'recall =', recall, 'f1 =', f
-            
-    

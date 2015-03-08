@@ -36,19 +36,41 @@ def extend_features(old_path, new_path, out_path):
                         new_line = new.readline()
                         fo.write(','.join(old_line.split(",")[:-1])+','+new_line)
                         
+def add_labels(no_tag_path, tag_path, out_path):
+    with open(out_path, "w+") as fo:
+        with open(no_tag_path, "r") as old:
+            with open(tag_path, "r") as new:
+                for old_line in old:
+                    new_line = new.readline()
+                    fo.write(old_line.replace('\n', '') + new_line)
+                    
             
 if __name__ == '__main__':
 
-    old_path = "features/temp.train.arff"
-    new_path = "features/3-7-15.train.arff"
-    out_path = "features/joined.train.arff"
-     
-    extend_features(old_path, new_path, out_path)
-    
-    old_path = "features/temp.test.arff"
-    new_path = "features/3-7-15.test.arff"
-    out_path = "features/joined.test.arff"
-    
-    extend_features(old_path, new_path, out_path)
+#     old_path = "features/temp.train.arff"
+#     new_path = "features/3-7-15.train.arff"
+#     out_path = "features/joined.train.arff"
+#      
+#     extend_features(old_path, new_path, out_path)
+#     
+#     old_path = "features/temp.test.arff"
+#     new_path = "features/3-7-15.test.arff"
+#     out_path = "features/joined.test.arff"
+#     
+#     extend_features(old_path, new_path, out_path)
 
+    old_path = "data/coref-devset.notag"
+    new_path = "data/dev predictions.txt"
+    out_path = "data/dev.pred"
+      
+    add_labels(old_path, new_path, out_path)
+
+
+    old_path = "data/coref-testset.notag"
+    new_path = "data/final predictions.txt"
+    out_path = "data/test.pred"
+      
+    add_labels(old_path, new_path, out_path)
+
+    
     
