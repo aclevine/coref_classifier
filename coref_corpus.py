@@ -195,6 +195,7 @@ class Corpus(object):
             lines = filter(None, file.read().split('\n'))
         self.documents = set()
         current_document = None
+        line_num = 1
         for line in lines:
             items = line.split(' ')
             document = Document(items[0])
@@ -218,7 +219,8 @@ class Corpus(object):
                 print b
                 break
             pair = MentionPair(document, mention_a, mention_b, label)
-            self.mention_pairs[document.name].append(pair)
+            self.mention_pairs[line_num] = pair
+            line_num += 1
         self.documents = sorted(self.documents)
         if verbose:
             print 'Processed {n} documents in total'.format(

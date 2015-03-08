@@ -76,6 +76,11 @@ def string_match(pair):
     mention_a, mention_b = pair.mentions
     return mention_a.text == mention_b.text
 
+def string_match_lower(pair):
+    """do strings match each other, with lowercasing?"""
+    mention_a, mention_b = pair.mentions
+    return mention_a.text.lower() == mention_b.text.lower()
+
 def token_match(pair):
     """do tokens match each other?"""
     mention_a, mention_b = pair.mentions
@@ -102,7 +107,8 @@ def entity_type_match(pair):
 
 def acronym_first(pair):
     ''' check if fist letters of one matches all letters in others:
-    [Agence France Presse] ~ [AFP] '''
+    [Agence France Presse] ~ [AFP] 
+    NEVER HIT'''
     mention_a, mention_b = pair.mentions
     if (mention_a.start + 1) != mention_a.end\
     and (mention_b.start + 1) != mention_b.end:

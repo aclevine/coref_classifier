@@ -34,24 +34,23 @@ class FeatWriter(object):
         # WRITE
         with open(output_path, 'w+') as fo:
             fo.write(self.get_weka_header(self.features) + '\n')
-            for doc, pair_list in corpus.mention_pairs.iteritems():
-                for pair in pair_list:
-                    # FEATURES
-                    for feat_func in self.features:
-                        feat = feat_func(pair)
-                        # feat = codebook(feat)
-                        fo.write(str(float(feat)))
-                        fo.write(seperator)
-                    # LABEL
-                    fo.write(pair.label)
-                    fo.write('\n')
-
+            for line, pair in corpus.mention_pairs.iteritems():
+                # FEATURES
+                for feat_func in self.features:
+                    feat = feat_func(pair)
+                    # feat = codebook(feat)
+                    fo.write(str(feat))
+                    fo.write(seperator)
+                # LABEL
+                fo.write(pair.label)
+                fo.write('\n')
 
 if __name__ == "__main__":
     
     features = [
                 # FEATURES HERE
                 string_match,
+                string_match_lower,
                 token_match,
                 entity_type_match,
                 pos_match,
@@ -60,15 +59,14 @@ if __name__ == "__main__":
                 appositives,
                 predicate_nominative,
                 relative_pronoun,
-                acronym_first,
                 token_inbetween,
                 extend_pos_match,
                 extend_simple_pos_match,
                 same_sentence,
                 substring_match
-                ]
+               ]
 
-    output_name = "features/3-7-15"
+    output_name = "features/3-9-15"
 
     # train data
     extractor = FeatWriter(features, 'coref-trainset.gold',
