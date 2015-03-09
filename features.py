@@ -5,6 +5,7 @@ Created on Mar 3, 2015
 
 '''
 # TESTING
+import string
 def dummy_func(pair):
     return 1
 
@@ -70,7 +71,6 @@ def extend_simple_pos_match(pair):
     """ how many parts of speech match? -potential backoff feature"""
     return pos_match(pair, window_left=2, window_right=2)
 
-
 def string_match(pair):
     """do strings match each other?"""
     mention_a, mention_b = pair.mentions
@@ -100,20 +100,32 @@ def extended_token_match(pair, window_left = 2, window_right = 2):
     pos_b = {tok.text for tok in tokens_b}
     return len([pos for pos in pos_a if pos in pos_b])
 
+def extended_token_match_weigted(pair):
+    """ how many parts of speech 1match weighted by number of tokens"""
+    mention_a, mention_b = pair.mentions
+    tokens_a = mention_a.text.split('_')
+    tokens_b = mention_b.text.split('_')
+    match_count = extended_token_match(pair, window_left = 2, window_right = 2)
+    return match_count / (len(tokens_a) + len(tokens_b))
+
 def entity_type_match(pair):
     """do strings match each other?"""
     mention_a, mention_b = pair.mentions
     return mention_a.entity_type == mention_b.entity_type
 
-def acronym_first(pair):
+def acronym(pair):
     ''' check if fist letters of one matches all letters in others:
-    [Agence France Presse] ~ [AFP] 
-    NEVER HIT'''
+    [Agence France Presse] ~ [AFP]  (HAD NO HITS -AL)'''
     mention_a, mention_b = pair.mentions
-    if (mention_a.start + 1) != mention_a.end\
-    and (mention_b.start + 1) != mention_b.end:
-        letters_a = [tok[0] for tok in mention_a.text.split('_')]
-        letters_b = [l for l in mention_b.text if l not in {' ', '.', '_'}]
+    if len(mention_a.text) > len(mention_b.text):
+        words = mention_a.text.lower().split('_')
+        short = mention_b.text.lower().split('_')
+    else:
+        words = mention_b.text.lower().split('_')
+        short = mention_a.text.lower().split('_')
+    if len(short) == 1:    
+        letters_a = [tok[0] for tok in words]
+        letters_b = [l.lower() for l in short[0] if l in string.letters]
         return letters_a == letters_b
     else:
         return False
@@ -126,7 +138,7 @@ def token_inbetween(pair, targets={'is'}, window=3):
                                           mention_a.end, mention_b.end, 
                                           0, 0)
     
-        return len([tok for tok in inbetween_tokens if tok.text in targets])
+        return len([tok for tok in inbetween_tokens if tok.text.lower() in targets])
     return 0
 
 def token_inbetween_binary(pair, targets={'is'}):
@@ -155,11 +167,17 @@ def substring_match(pair):
     shortest, longest = sorted(pair.mentions, key=lambda m : len(m.text))
     return shortest.text.lower() in longest.text.lower()
 
-# def role_appositives(pair):
-#     '''check for role noun and proper noun next to each other'''
-#     # return if y is proper noun and x is noun
-#     return
-# 
-# def demonyn(pair):
-#     ''' number of matching letters? '''
-#     return
+def sentence_distance(pair):
+    """ are mentions in the same sentence?"""
+    mention_a, mention_b = pair.mentions
+    return mention_a.sentence_index - mention_b.sentence_index
+
+def simple_token_distance(pair):
+    """ how does the positioning of one mention compare to the other?"""
+    mention_a, mention_b = pair.mentions
+    return mention_a.end - mention_b.start
+    
+def extended_token_distance(pair):
+    """ simplified joining of sentence and token distance"""
+    mention_a, mention_b = pair.mentions
+    return abs(100 * sentence_distance(pair)) + abs(simple_token_distance(pair))

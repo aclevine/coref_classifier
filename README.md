@@ -1,2 +1,10 @@
 # coref_classifier
 137 project 2
+
+#Evaluation
+
+Use "data/coref-devset.gold" and "data/dev_pred.txt" to match 
+our development results from the presentation.
+
+Use "data/coref-testset.gold" and "data/final_pred.txt" to match 
+our final testing results from the presentation.

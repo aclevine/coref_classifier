@@ -39,7 +39,7 @@ class FeatWriter(object):
                 for feat_func in self.features:
                     feat = feat_func(pair)
                     # feat = codebook(feat)
-                    fo.write(str(feat))
+                    fo.write(str(float(feat)))
                     fo.write(seperator)
                 # LABEL
                 fo.write(pair.label)
@@ -63,24 +63,26 @@ if __name__ == "__main__":
                 extend_pos_match,
                 extend_simple_pos_match,
                 same_sentence,
-                substring_match
+                substring_match,
+                acronym,
+                sentence_distance,
+                simple_token_distance,
+                extended_token_distance
                ]
 
-    output_name = "features/3-9-15"
+    output_name = "features/3-10-15"
 
     # train data
     extractor = FeatWriter(features, 'coref-trainset.gold',
                            output_name=output_name)
     extractor.write_features()
-    
+     
     # dev data
     extractor = FeatWriter(features, 'coref-devset.gold',
                            output_name=output_name)
     extractor.write_features(train=False)
-    
+     
     # test data
     extractor = FeatWriter(features, 'coref-testset.gold',
-                           output_name="features/final")
+                           output_name="features/final_fixed")
     extractor.write_features(train=False)
-
-    

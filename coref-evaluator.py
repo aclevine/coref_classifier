@@ -27,7 +27,7 @@ for gline in goldfh.readlines():
 
 
 for tline in testfh.readlines():
-    if not emptyline_pattern.match(tline):
+    if not emptyline_pattern.match(tline) and not tline.startswith("#"):
         parts = tline.split()
         #print parts
         test_tag_list.append(parts[-1])
