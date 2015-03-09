@@ -1,0 +1,109 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.Logistic -R 1.0E-8 -M -1
+Relation:     coref
+Instances:    120191
+Attributes:   20
+              string_match
+              string_match_lower
+              token_match
+              entity_type_match
+              pos_match
+              number_match
+              simple_pos_match
+              appositives
+              predicate_nominative
+              relative_pronoun
+              token_inbetween
+              extend_pos_match
+              extend_simple_pos_match
+              same_sentence
+              substring_match
+              acronym
+              sentence_distance
+              simple_token_distance
+              extended_token_distance
+              class
+Test mode:user supplied test set: size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                                         Class
+Variable                                   yes
+==============================================
+string_match                           -1.7868
+string_match_lower                      2.1236
+token_match                             2.1498
+entity_type_match                      24.3317
+pos_match                              -0.6774
+number_match                            0.7782
+simple_pos_match                        0.0148
+appositives                             1.7508
+predicate_nominative                     2.088
+relative_pronoun                        2.3243
+token_inbetween                         0.1237
+extend_pos_match                       -0.0592
+extend_simple_pos_match                 0.1551
+same_sentence                           0.2411
+substring_match                         1.6299
+acronym                                 1.7774
+sentence_distance                      -3.7205
+simple_token_distance                  -0.0019
+extended_token_distance                -0.0395
+Intercept                             -26.4172
+
+
+Odds Ratios...
+                                         Class
+Variable                                   yes
+==============================================
+string_match                            0.1675
+string_match_lower                      8.3613
+token_match                             8.5829
+entity_type_match          3.69081199956209E10
+pos_match                                0.508
+number_match                            2.1775
+simple_pos_match                        1.0149
+appositives                             5.7591
+predicate_nominative                    8.0684
+relative_pronoun                       10.2191
+token_inbetween                         1.1317
+extend_pos_match                        0.9425
+extend_simple_pos_match                 1.1677
+same_sentence                           1.2727
+substring_match                         5.1036
+acronym                                 5.9144
+sentence_distance                       0.0242
+simple_token_distance                   0.9981
+extended_token_distance                 0.9613
+
+
+Time taken to build model: 10.32 seconds
+
+=== Evaluation on test set ===
+=== Summary ===
+
+Correctly Classified Instances       90233               98.4507 %
+Incorrectly Classified Instances      1420                1.5493 %
+Kappa statistic                          0.4401
+Mean absolute error                      0.0307
+Root mean squared error                  0.1128
+Relative absolute error                 52.9806 %
+Root relative squared error             84.745  %
+Total Number of Instances            91653     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.36      0.004      0.591     0.36      0.447      0.966    yes
+                 0.996     0.64       0.989     0.996     0.992      0.966    no
+Weighted Avg.    0.985     0.629      0.982     0.985     0.983      0.966
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+   575  1022 |     a = yes
+   398 89658 |     b = no
+
