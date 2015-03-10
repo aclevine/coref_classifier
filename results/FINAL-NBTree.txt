@@ -1,0 +1,1942 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.NBTree 
+Relation:     coref
+Instances:    120191
+Attributes:   21
+              string_match
+              string_match_lower
+              token_match
+              entity_type_match
+              pos_match
+              number_match
+              simple_pos_match
+              appositives
+              predicate_nominative
+              relative_pronoun
+              token_inbetween
+              extend_pos_match
+              extend_simple_pos_match
+              same_sentence
+              substring_match
+              acronym
+              sentence_distance
+              simple_token_distance
+              extended_token_distance
+              dummy_feature
+              class
+Test mode:user supplied test set: size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+NBTree
+------------------
+
+same_sentence <= 0.5
+|   token_match <= 0.5
+|   |   extended_token_distance <= 254.5: NB 3
+|   |   extended_token_distance > 254.5
+|   |   |   string_match_lower <= 0.5
+|   |   |   |   simple_pos_match <= 0.5: NB 6
+|   |   |   |   simple_pos_match > 0.5: NB 7
+|   |   |   string_match_lower > 0.5
+|   |   |   |   simple_token_distance <= -11.5: NB 9
+|   |   |   |   simple_token_distance > -11.5: NB 10
+|   token_match > 0.5
+|   |   string_match <= 0.5: NB 12
+|   |   string_match > 0.5
+|   |   |   simple_pos_match <= 0.5: NB 14
+|   |   |   simple_pos_match > 0.5: NB 15
+same_sentence > 0.5
+|   pos_match <= 0.5
+|   |   simple_pos_match <= 0.5
+|   |   |   substring_match <= 0.5: NB 19
+|   |   |   substring_match > 0.5: NB 20
+|   |   simple_pos_match > 0.5
+|   |   |   extended_token_distance <= 3.5
+|   |   |   |   predicate_nominative <= 0.5
+|   |   |   |   |   number_match <= 0.5: NB 24
+|   |   |   |   |   number_match > 0.5
+|   |   |   |   |   |   entity_type_match <= 0.5: NB 26
+|   |   |   |   |   |   entity_type_match > 0.5: NB 27
+|   |   |   |   predicate_nominative > 0.5: NB 28
+|   |   |   extended_token_distance > 3.5: NB 29
+|   pos_match > 0.5
+|   |   token_match <= 0.5: NB 31
+|   |   token_match > 0.5
+|   |   |   string_match <= 0.5
+|   |   |   |   extend_simple_pos_match <= 0.5: NB 34
+|   |   |   |   extend_simple_pos_match > 0.5: NB 35
+|   |   |   string_match > 0.5
+|   |   |   |   extended_token_distance <= 9.5: NB 37
+|   |   |   |   extended_token_distance > 9.5: NB 38
+
+Leaf number: 3 Naive Bayes Classifier
+
+                            Class
+Attribute                     yes      no
+                           (0.06)  (0.94)
+==========================================
+string_match
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+string_match_lower
+  '(-inf-0.5]'              1175.0 20774.0
+  '(0.5-inf)'                 47.0     6.0
+  [total]                   1222.0 20780.0
+
+token_match
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+entity_type_match
+  '(-inf-0.5]'                 1.0 12468.0
+  '(0.5-inf)'               1221.0  8312.0
+  [total]                   1222.0 20780.0
+
+pos_match
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+number_match
+  '(-inf-0.5]'               148.0  4895.0
+  '(0.5-inf)'               1074.0 15885.0
+  [total]                   1222.0 20780.0
+
+simple_pos_match
+  '(-inf-0.5]'               667.0  8706.0
+  '(0.5-inf)'                555.0 12074.0
+  [total]                   1222.0 20780.0
+
+appositives
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+predicate_nominative
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+relative_pronoun
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+token_inbetween
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+extend_pos_match
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+extend_simple_pos_match
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+same_sentence
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+substring_match
+  '(-inf-0.5]'              1054.0 20472.0
+  '(0.5-inf)'                168.0   308.0
+  [total]                   1222.0 20780.0
+
+acronym
+  '(-inf-0.5]'              1210.0 20767.0
+  '(0.5-inf)'                 12.0    13.0
+  [total]                   1222.0 20780.0
+
+sentence_distance
+  '(-inf--1.5]'              260.0  8519.0
+  '(-1.5-inf)'               962.0 12261.0
+  [total]                   1222.0 20780.0
+
+simple_token_distance
+  '(-inf--6.5]'              137.0  4851.0
+  '(-6.5-inf)'              1085.0 15929.0
+  [total]                   1222.0 20780.0
+
+extended_token_distance
+  '(-inf-165.5]'             962.0 12255.0
+  '(165.5-inf)'              260.0  8525.0
+  [total]                   1222.0 20780.0
+
+dummy_feature
+  'All'                     1221.0 20779.0
+  [total]                   1221.0 20779.0
+
+
+
+Leaf number: 6 Naive Bayes Classifier
+
+                            Class
+Attribute                     yes      no
+                           (0.01)  (0.99)
+==========================================
+string_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+string_match_lower
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+token_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+entity_type_match
+  '(-inf-0.5]'                 1.0 18562.0
+  '(0.5-inf)'                238.0 16952.0
+  [total]                    239.0 35514.0
+
+pos_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+number_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+simple_pos_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+appositives
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+predicate_nominative
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+relative_pronoun
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+token_inbetween
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+extend_pos_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+extend_simple_pos_match
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+same_sentence
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+substring_match
+  '(-inf-0.5]'               209.0 34774.0
+  '(0.5-inf)'                 30.0   740.0
+  [total]                    239.0 35514.0
+
+acronym
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+sentence_distance
+  '(-inf--6.5]'               88.0 24393.0
+  '(-6.5-inf)'               151.0 11121.0
+  [total]                    239.0 35514.0
+
+simple_token_distance
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+extended_token_distance
+  '(-inf-702.5]'             155.0 11430.0
+  '(702.5-inf)'               84.0 24084.0
+  [total]                    239.0 35514.0
+
+dummy_feature
+  'All'                      238.0 35513.0
+  [total]                    238.0 35513.0
+
+
+
+Leaf number: 7 Naive Bayes Classifier
+
+                            Class
+Attribute                     yes      no
+                           (0.01)  (0.99)
+==========================================
+string_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+string_match_lower
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+token_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+entity_type_match
+  '(-inf-0.5]'                 1.0 23369.0
+  '(0.5-inf)'                225.0 15687.0
+  [total]                    226.0 39056.0
+
+pos_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+number_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+simple_pos_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+appositives
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+predicate_nominative
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+relative_pronoun
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+token_inbetween
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+extend_pos_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+extend_simple_pos_match
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+same_sentence
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+substring_match
+  '(-inf-0.5]'               190.0 38537.0
+  '(0.5-inf)'                 36.0   519.0
+  [total]                    226.0 39056.0
+
+acronym
+  '(-inf-0.5]'               218.0 39025.0
+  '(0.5-inf)'                  8.0    31.0
+  [total]                    226.0 39056.0
+
+sentence_distance
+  '(-inf--6.5]'               82.0 25648.0
+  '(-6.5-inf)'               144.0 13408.0
+  [total]                    226.0 39056.0
+
+simple_token_distance
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+extended_token_distance
+  '(-inf-630.5]'             144.0 13251.0
+  '(630.5-inf)'               82.0 25805.0
+  [total]                    226.0 39056.0
+
+dummy_feature
+  'All'                      225.0 39055.0
+  [total]                    225.0 39055.0
+
+
+
+Leaf number: 9 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.55) (0.45)
+========================================
+string_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+string_match_lower
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+token_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+entity_type_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+pos_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+number_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+simple_pos_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+appositives
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+predicate_nominative
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+relative_pronoun
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+token_inbetween
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+extend_pos_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+extend_simple_pos_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+same_sentence
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+substring_match
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+acronym
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+sentence_distance
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+simple_token_distance
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+extended_token_distance
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+dummy_feature
+  'All'                      12.0   10.0
+  [total]                    12.0   10.0
+
+
+
+Leaf number: 10 Naive Bayes Classifier
+
+                          Class
+Attribute                   yes    no
+                          (0.2) (0.8)
+======================================
+string_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+string_match_lower
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+token_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+entity_type_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+pos_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+number_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+simple_pos_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+appositives
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+predicate_nominative
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+relative_pronoun
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+token_inbetween
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+extend_pos_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+extend_simple_pos_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+same_sentence
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+substring_match
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+acronym
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+sentence_distance
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+simple_token_distance
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+extended_token_distance
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+dummy_feature
+  'All'                     16.0  65.0
+  [total]                   16.0  65.0
+
+
+
+Leaf number: 12 Naive Bayes Classifier
+
+                          Class
+Attribute                   yes    no
+                          (0.6) (0.4)
+======================================
+string_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+string_match_lower
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+token_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+entity_type_match
+  '(-inf-0.5]'               1.0  19.0
+  '(0.5-inf)'              155.0  86.0
+  [total]                  156.0 105.0
+
+pos_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+number_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+simple_pos_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+appositives
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+predicate_nominative
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+relative_pronoun
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+token_inbetween
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+extend_pos_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+extend_simple_pos_match
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+same_sentence
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+substring_match
+  '(-inf-0.5]'               1.0  39.0
+  '(0.5-inf)'              155.0  66.0
+  [total]                  156.0 105.0
+
+acronym
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+sentence_distance
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+simple_token_distance
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+extended_token_distance
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+dummy_feature
+  'All'                    155.0 104.0
+  [total]                  155.0 104.0
+
+
+
+Leaf number: 14 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.81) (0.19)
+========================================
+string_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+string_match_lower
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+token_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+entity_type_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+pos_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+number_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+simple_pos_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+appositives
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+predicate_nominative
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+relative_pronoun
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+token_inbetween
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+extend_pos_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+extend_simple_pos_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+same_sentence
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+substring_match
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+acronym
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+sentence_distance
+  '(-inf--10.5]'              3.0    8.0
+  '(-10.5-inf)'              63.0    8.0
+  [total]                    66.0   16.0
+
+simple_token_distance
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+extended_token_distance
+  '(-inf-1052.5]'            63.0    8.0
+  '(1052.5-inf)'              3.0    8.0
+  [total]                    66.0   16.0
+
+dummy_feature
+  'All'                      65.0   15.0
+  [total]                    65.0   15.0
+
+
+
+Leaf number: 15 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.62) (0.38)
+========================================
+string_match
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+string_match_lower
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+token_match
+  '(-inf-1.5]'              886.0  612.0
+  '(1.5-inf)'               104.0    4.0
+  [total]                   990.0  616.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0   48.0
+  '(0.5-inf)'               989.0  568.0
+  [total]                   990.0  616.0
+
+pos_match
+  '(-inf-0.5]'               40.0    4.0
+  '(0.5-1.5]'               922.0  612.0
+  '(1.5-inf)'                29.0    1.0
+  [total]                   991.0  617.0
+
+number_match
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+simple_pos_match
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+appositives
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+predicate_nominative
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+relative_pronoun
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+token_inbetween
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+extend_pos_match
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+extend_simple_pos_match
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+same_sentence
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+substring_match
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+acronym
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+sentence_distance
+  '(-inf--21.5]'             14.0  100.0
+  '(-21.5--5.5]'            205.0  321.0
+  '(-5.5--1.5]'             402.0  153.0
+  '(-1.5-inf)'              371.0   44.0
+  [total]                   992.0  618.0
+
+simple_token_distance
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+extended_token_distance
+  '(-inf-200.5]'            378.0   44.0
+  '(200.5-514.5]'           380.0  137.0
+  '(514.5-2407]'            226.0  356.0
+  '(2407-inf)'                8.0   81.0
+  [total]                   992.0  618.0
+
+dummy_feature
+  'All'                     989.0  615.0
+  [total]                   989.0  615.0
+
+
+
+Leaf number: 19 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.11) (0.89)
+========================================
+string_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+string_match_lower
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+token_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0 4682.0
+  '(0.5-inf)'              1010.0 3550.0
+  [total]                  1011.0 8232.0
+
+pos_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+number_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+simple_pos_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+appositives
+  '(-inf-0.5]'              870.0 8081.0
+  '(0.5-inf)'               141.0  151.0
+  [total]                  1011.0 8232.0
+
+predicate_nominative
+  '(-inf-0.5]'              980.0 8199.0
+  '(0.5-inf)'                31.0   33.0
+  [total]                  1011.0 8232.0
+
+relative_pronoun
+  '(-inf-0.5]'              832.0 8151.0
+  '(0.5-inf)'               179.0   81.0
+  [total]                  1011.0 8232.0
+
+token_inbetween
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+extend_pos_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+extend_simple_pos_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+same_sentence
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+substring_match
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+acronym
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+sentence_distance
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+simple_token_distance
+  '(-inf--16.5]'             67.0 1094.0
+  '(-16.5--6.5]'            226.0 1504.0
+  '(-6.5--1.5]'             370.0 1122.0
+  '(-1.5-1]'                350.0  340.0
+  '(1-inf)'                   1.0 4175.0
+  [total]                  1014.0 8235.0
+
+extended_token_distance
+  '(-inf-1.5]'              350.0  340.0
+  '(1.5-6.5]'               370.0 2251.0
+  '(6.5-16.5]'              226.0 3298.0
+  '(16.5-inf)'               67.0 2345.0
+  [total]                  1013.0 8234.0
+
+dummy_feature
+  'All'                    1010.0 8231.0
+  [total]                  1010.0 8231.0
+
+
+
+Leaf number: 20 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.21) (0.79)
+========================================
+string_match
+  '(-inf-0.5]'               43.0  181.0
+  '(0.5-inf)'                 6.0    1.0
+  [total]                    49.0  182.0
+
+string_match_lower
+  '(-inf-0.5]'               43.0  181.0
+  '(0.5-inf)'                 6.0    1.0
+  [total]                    49.0  182.0
+
+token_match
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0  107.0
+  '(0.5-inf)'                48.0   75.0
+  [total]                    49.0  182.0
+
+pos_match
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+number_match
+  '(-inf-0.5]'                2.0   47.0
+  '(0.5-inf)'                47.0  135.0
+  [total]                    49.0  182.0
+
+simple_pos_match
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+appositives
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+predicate_nominative
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+relative_pronoun
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+token_inbetween
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+extend_pos_match
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+extend_simple_pos_match
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+same_sentence
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+substring_match
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+acronym
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+sentence_distance
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+simple_token_distance
+  '(-inf-1]'                 48.0   87.0
+  '(1-inf)'                   1.0   95.0
+  [total]                    49.0  182.0
+
+extended_token_distance
+  '(-inf-9.5]'               38.0   77.0
+  '(9.5-inf)'                11.0  105.0
+  [total]                    49.0  182.0
+
+dummy_feature
+  'All'                      48.0  181.0
+  [total]                    48.0  181.0
+
+
+
+Leaf number: 24 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.09) (0.91)
+========================================
+string_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+string_match_lower
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+token_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0  215.0
+  '(0.5-inf)'                31.0  115.0
+  [total]                    32.0  330.0
+
+pos_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+number_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+simple_pos_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+appositives
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+predicate_nominative
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+relative_pronoun
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+token_inbetween
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+extend_pos_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+extend_simple_pos_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+same_sentence
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+substring_match
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+acronym
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+sentence_distance
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+simple_token_distance
+  '(-inf-1]'                 31.0  205.0
+  '(1-inf)'                   1.0  125.0
+  [total]                    32.0  330.0
+
+extended_token_distance
+  '(-inf-0.5]'               11.0   19.0
+  '(0.5-inf)'                21.0  311.0
+  [total]                    32.0  330.0
+
+dummy_feature
+  'All'                      31.0  329.0
+  [total]                    31.0  329.0
+
+
+
+Leaf number: 26 Naive Bayes Classifier
+
+                          Class
+Attribute                   yes    no
+                            (0)   (1)
+======================================
+string_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+string_match_lower
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+token_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+entity_type_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+pos_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+number_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+simple_pos_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+appositives
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+predicate_nominative
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+relative_pronoun
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+token_inbetween
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+extend_pos_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+extend_simple_pos_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+same_sentence
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+substring_match
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+acronym
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+sentence_distance
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+simple_token_distance
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+extended_token_distance
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+dummy_feature
+  'All'                      1.0 316.0
+  [total]                    1.0 316.0
+
+
+
+Leaf number: 27 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.68) (0.32)
+========================================
+string_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+string_match_lower
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+token_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+entity_type_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+pos_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+number_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+simple_pos_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+appositives
+  '(-inf-0.5]'              158.0  126.0
+  '(0.5-inf)'               146.0   16.0
+  [total]                   304.0  142.0
+
+predicate_nominative
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+relative_pronoun
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+token_inbetween
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+extend_pos_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+extend_simple_pos_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+same_sentence
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+substring_match
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+acronym
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+sentence_distance
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+simple_token_distance
+  '(-inf--1.5]'             128.0   71.0
+  '(-1.5-1]'                176.0   29.0
+  '(1-inf)'                   1.0   43.0
+  [total]                   305.0  143.0
+
+extended_token_distance
+  '(-inf-1.5]'              176.0   29.0
+  '(1.5-inf)'               128.0  113.0
+  [total]                   304.0  142.0
+
+dummy_feature
+  'All'                     303.0  141.0
+  [total]                   303.0  141.0
+
+
+
+Leaf number: 28 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.52) (0.48)
+========================================
+string_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+string_match_lower
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+token_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0    9.0
+  '(0.5-inf)'                15.0    6.0
+  [total]                    16.0   15.0
+
+pos_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+number_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+simple_pos_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+appositives
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+predicate_nominative
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+relative_pronoun
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+token_inbetween
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+extend_pos_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+extend_simple_pos_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+same_sentence
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+substring_match
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+acronym
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+sentence_distance
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+simple_token_distance
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+extended_token_distance
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+dummy_feature
+  'All'                      15.0   14.0
+  [total]                    15.0   14.0
+
+
+
+Leaf number: 29 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.04) (0.96)
+========================================
+string_match
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+string_match_lower
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+token_match
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0 3189.0
+  '(0.5-inf)'               238.0 1912.0
+  [total]                   239.0 5101.0
+
+pos_match
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+number_match
+  '(-inf-0.5]'               33.0 2170.0
+  '(0.5-inf)'               206.0 2931.0
+  [total]                   239.0 5101.0
+
+simple_pos_match
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+appositives
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+predicate_nominative
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+relative_pronoun
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+token_inbetween
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+extend_pos_match
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+extend_simple_pos_match
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+same_sentence
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+substring_match
+  '(-inf-0.5]'              221.0 5055.0
+  '(0.5-inf)'                18.0   46.0
+  [total]                   239.0 5101.0
+
+acronym
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+sentence_distance
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+simple_token_distance
+  '(-inf--6.5]'             128.0 1723.0
+  '(-6.5-0]'                111.0  430.0
+  '(0-inf)'                   1.0 2949.0
+  [total]                   240.0 5102.0
+
+extended_token_distance
+  '(-inf-7.5]'              133.0 1305.0
+  '(7.5-inf)'               106.0 3796.0
+  [total]                   239.0 5101.0
+
+dummy_feature
+  'All'                     238.0 5100.0
+  [total]                   238.0 5100.0
+
+
+
+Leaf number: 31 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.06) (0.94)
+========================================
+string_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+string_match_lower
+  '(-inf-0.5]'              281.0 4564.0
+  '(0.5-inf)'                15.0    1.0
+  [total]                   296.0 4565.0
+
+token_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+entity_type_match
+  '(-inf-0.5]'                1.0 2739.0
+  '(0.5-inf)'               295.0 1826.0
+  [total]                   296.0 4565.0
+
+pos_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+number_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+simple_pos_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+appositives
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+predicate_nominative
+  '(-inf-0.5]'              285.0 4555.0
+  '(0.5-inf)'                11.0   10.0
+  [total]                   296.0 4565.0
+
+relative_pronoun
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+token_inbetween
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+extend_pos_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+extend_simple_pos_match
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+same_sentence
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+substring_match
+  '(-inf-0.5]'              270.0 4507.0
+  '(0.5-inf)'                26.0   58.0
+  [total]                   296.0 4565.0
+
+acronym
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+sentence_distance
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+simple_token_distance
+  '(-inf--7.5]'              58.0 1217.0
+  '(-7.5--0.5]'             114.0  940.0
+  '(-0.5-1]'                125.0   39.0
+  '(1-inf)'                   1.0 2371.0
+  [total]                   298.0 4567.0
+
+extended_token_distance
+  '(-inf-0.5]'              125.0   39.0
+  '(0.5-7.5]'               114.0 1710.0
+  '(7.5-inf)'                58.0 2817.0
+  [total]                   297.0 4566.0
+
+dummy_feature
+  'All'                     295.0 4564.0
+  [total]                   295.0 4564.0
+
+
+
+Leaf number: 34 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.12) (0.88)
+========================================
+string_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+string_match_lower
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+token_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+entity_type_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+pos_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+number_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+simple_pos_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+appositives
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+predicate_nominative
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+relative_pronoun
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+token_inbetween
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+extend_pos_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+extend_simple_pos_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+same_sentence
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+substring_match
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+acronym
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+sentence_distance
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+simple_token_distance
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+extended_token_distance
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+dummy_feature
+  'All'                       4.0   30.0
+  [total]                     4.0   30.0
+
+
+
+Leaf number: 35 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.23) (0.77)
+========================================
+string_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+string_match_lower
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+token_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+entity_type_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+pos_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+number_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+simple_pos_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+appositives
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+predicate_nominative
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+relative_pronoun
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+token_inbetween
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+extend_pos_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+extend_simple_pos_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+same_sentence
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+substring_match
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+acronym
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+sentence_distance
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+simple_token_distance
+  '(-inf--23]'                3.0    1.0
+  '(-23-inf)'                 1.0   10.0
+  [total]                     4.0   11.0
+
+extended_token_distance
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+dummy_feature
+  'All'                       3.0   10.0
+  [total]                     3.0   10.0
+
+
+
+Leaf number: 37 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.91) (0.09)
+========================================
+string_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+string_match_lower
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+token_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+entity_type_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+pos_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+number_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+simple_pos_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+appositives
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+predicate_nominative
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+relative_pronoun
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+token_inbetween
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+extend_pos_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+extend_simple_pos_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+same_sentence
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+substring_match
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+acronym
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+sentence_distance
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+simple_token_distance
+  '(-inf-2.5]'              121.0    8.0
+  '(2.5-inf)'                 1.0    5.0
+  [total]                   122.0   13.0
+
+extended_token_distance
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+dummy_feature
+  'All'                     121.0   12.0
+  [total]                   121.0   12.0
+
+
+
+Leaf number: 38 Naive Bayes Classifier
+
+                           Class
+Attribute                    yes     no
+                          (0.47) (0.53)
+========================================
+string_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+string_match_lower
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+token_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+entity_type_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+pos_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+number_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+simple_pos_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+appositives
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+predicate_nominative
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+relative_pronoun
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+token_inbetween
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+extend_pos_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+extend_simple_pos_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+same_sentence
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+substring_match
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+acronym
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+sentence_distance
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+simple_token_distance
+  '(-inf-0]'                 74.0   37.0
+  '(0-inf)'                   1.0   47.0
+  [total]                    75.0   84.0
+
+extended_token_distance
+  '(-inf-21.5]'              60.0   41.0
+  '(21.5-inf)'               15.0   43.0
+  [total]                    75.0   84.0
+
+dummy_feature
+  'All'                      74.0   83.0
+  [total]                    74.0   83.0
+
+
+
+
+Number of Leaves  : 	20
+
+Size of the tree : 	39
+
+
+Time taken to build model: 157.74 seconds
+
+=== Evaluation on test set ===
+=== Summary ===
+
+Correctly Classified Instances       90231               98.4485 %
+Incorrectly Classified Instances      1422                1.5515 %
+Kappa statistic                          0.4887
+Mean absolute error                      0.0272
+Root mean squared error                  0.1127
+Relative absolute error                 46.9367 %
+Root relative squared error             84.6484 %
+Total Number of Instances            91653     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.439     0.006      0.571     0.439     0.496      0.967    yes
+                 0.994     0.561      0.99      0.994     0.992      0.967    no
+Weighted Avg.    0.984     0.551      0.983     0.984     0.983      0.967
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+   701   896 |     a = yes
+   526 89530 |     b = no
+

@@ -1,0 +1,85 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.ADTree -B 10 -E -3
+Relation:     coref
+Instances:    120191
+Attributes:   21
+              string_match
+              string_match_lower
+              token_match
+              entity_type_match
+              pos_match
+              number_match
+              simple_pos_match
+              appositives
+              predicate_nominative
+              relative_pronoun
+              token_inbetween
+              extend_pos_match
+              extend_simple_pos_match
+              same_sentence
+              substring_match
+              acronym
+              sentence_distance
+              simple_token_distance
+              extended_token_distance
+              dummy_feature
+              class
+Test mode:user supplied test set: size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+Alternating decision tree:
+
+: 1.564
+|  (1)entity_type_match < 0.5: 4.765
+|  (1)entity_type_match >= 0.5: -0.423
+|  (2)extended_token_distance < 322.5: -0.395
+|  |  (8)extended_token_distance < 200.5: -0.116
+|  |  |  (9)simple_token_distance < 3.5: -0.137
+|  |  |  (9)simple_token_distance >= 3.5: 0.26
+|  |  |  |  (10)same_sentence < 0.5: -0.463
+|  |  |  |  (10)same_sentence >= 0.5: 3.536
+|  |  (8)extended_token_distance >= 200.5: 0.307
+|  (2)extended_token_distance >= 322.5: 0.674
+|  |  (7)extended_token_distance < 914.5: -0.211
+|  |  (7)extended_token_distance >= 914.5: 0.388
+|  (3)substring_match < 0.5: 0.251
+|  |  (4)extended_token_distance < 3.5: -0.971
+|  |  |  (5)simple_token_distance < 1: -0.2
+|  |  |  (5)simple_token_distance >= 1: 2.932
+|  |  (4)extended_token_distance >= 3.5: 0.138
+|  (3)substring_match >= 0.5: -1.228
+|  |  (6)token_match < 0.5: 0.615
+|  |  (6)token_match >= 0.5: -0.365
+Legend: -ve = yes, +ve = no
+Tree size (total number of nodes): 31
+Leaves (number of predictor nodes): 21
+
+Time taken to build model: 32.99 seconds
+
+=== Evaluation on test set ===
+=== Summary ===
+
+Correctly Classified Instances       90260               98.4801 %
+Incorrectly Classified Instances      1393                1.5199 %
+Kappa statistic                          0.4828
+Mean absolute error                      0.0647
+Root mean squared error                  0.1303
+Relative absolute error                111.6119 %
+Root relative squared error             97.8957 %
+Total Number of Instances            91653     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.42      0.005      0.59      0.42      0.49       0.97     yes
+                 0.995     0.58       0.99      0.995     0.992      0.97     no
+Weighted Avg.    0.985     0.57       0.983     0.985     0.984      0.97 
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+   670   927 |     a = yes
+   466 89590 |     b = no
+
