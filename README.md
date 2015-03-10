@@ -3,6 +3,8 @@
 
 #Evaluation
 
+We have included metrics from Weka in the "results" folder.
+
 Use "data/coref-devset.gold" and "data/dev_pred.txt" to match 
 our development results from the presentation.
 
