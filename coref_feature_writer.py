@@ -68,22 +68,22 @@ if __name__ == "__main__":
 #                 sentence_distance,
 #                 simple_token_distance,
 #                 extended_token_distance
-                token_distance
+                dummy_feature
                ]
 
     output_name = "features/3-11-15"
 
-#     # train data
-#     extractor = FeatWriter(features, 'coref-trainset.gold',
-#                            output_name=output_name)
-#     extractor.write_features()
-#      
-#     # dev data
-#     extractor = FeatWriter(features, 'coref-devset.gold',
-#                            output_name=output_name)
-#     extractor.write_features(train=False)
+    # train data
+    extractor = FeatWriter(features, 'coref-trainset.gold',
+                           output_name=output_name)
+    extractor.write_features()
+      
+    # dev data
+    extractor = FeatWriter(features, 'coref-devset.gold',
+                           output_name=output_name)
+    extractor.write_features(train=False)
      
     # test data
     extractor = FeatWriter(features, 'coref-testset.gold',
-                           output_name="features/bees")
+                           output_name="features/final_alt")
     extractor.write_features(train=False)

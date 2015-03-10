@@ -60,7 +60,7 @@ if __name__ == '__main__':
     extend_features(old_path, new_path, out_path)
 
     old_path = "features/final_fixed.test.arff"
-    new_path = "features/3-11-15.test.arff"
+    new_path = "features/final_alt.test.arff"
     out_path = "features/joined.test.arff"
      
     extend_features(old_path, new_path, out_path)
