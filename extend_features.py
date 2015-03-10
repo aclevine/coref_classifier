@@ -47,30 +47,20 @@ def add_labels(no_tag_path, tag_path, out_path):
             
 if __name__ == '__main__':
 
-#     old_path = "features/temp.train.arff"
-#     new_path = "features/3-7-15.train.arff"
-#     out_path = "features/joined.train.arff"
-#      
-#     extend_features(old_path, new_path, out_path)
-#     
-#     old_path = "features/temp.test.arff"
-#     new_path = "features/3-7-15.test.arff"
-#     out_path = "features/joined.test.arff"
-#     
-#     extend_features(old_path, new_path, out_path)
-
-    old_path = "data/coref-devset.notag"
-    new_path = "data/dev predictions.txt"
-    out_path = "data/dev.pred"
+    old_path = "features/3-10-15.train.arff"
+    new_path = "features/3-11-15.train.arff"
+    out_path = "features/joined.train.arff"
       
-    add_labels(old_path, new_path, out_path)
+    extend_features(old_path, new_path, out_path)
+     
+    old_path = "features/3-10-15.dev.arff"
+    new_path = "features/3-11-15.test.arff"
+    out_path = "features/joined.dev.arff"
+     
+    extend_features(old_path, new_path, out_path)
 
-
-    old_path = "data/coref-testset.notag"
-    new_path = "data/final predictions.txt"
-    out_path = "data/test.pred"
-      
-    add_labels(old_path, new_path, out_path)
-
-    
-    
+    old_path = "features/final_fixed.test.arff"
+    new_path = "features/3-11-15.test.arff"
+    out_path = "features/joined.test.arff"
+     
+    extend_features(old_path, new_path, out_path)

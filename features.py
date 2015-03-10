@@ -180,3 +180,11 @@ def simple_token_distance(pair):
 def extended_token_distance(pair):
     """ simplified joining of sentence and token distance"""
     return abs(100 * sentence_distance(pair)) + abs(simple_token_distance(pair))
+
+
+def sentence_distance_alt(pair):
+    """ are mentions in the same sentence?"""
+    mention_a, mention_b = pair.mentions
+    if mention_a.sentence_index == mention_b.sentence_index:
+        return mention_a.sentence_index - mention_b.sentence_index
+    

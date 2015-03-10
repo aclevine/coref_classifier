@@ -49,40 +49,41 @@ if __name__ == "__main__":
     
     features = [
                 # FEATURES HERE
-                string_match,
-                string_match_lower,
-                token_match,
-                entity_type_match,
-                pos_match,
-                number_match,
-                simple_pos_match,
-                appositives,
-                predicate_nominative,
-                relative_pronoun,
-                token_inbetween,
-                extend_pos_match,
-                extend_simple_pos_match,
-                same_sentence,
-                substring_match,
-                acronym,
-                sentence_distance,
-                simple_token_distance,
-                extended_token_distance
+#                 string_match,
+#                 string_match_lower,
+#                 token_match,
+#                 entity_type_match,
+#                 pos_match,
+#                 number_match,
+#                 simple_pos_match,
+#                 appositives,
+#                 predicate_nominative,
+#                 relative_pronoun,
+#                 token_inbetween,
+#                 extend_pos_match,
+#                 extend_simple_pos_match,
+#                 same_sentence,
+#                 substring_match,
+#                 acronym,
+#                 sentence_distance,
+#                 simple_token_distance,
+#                 extended_token_distance
+                token_distance
                ]
 
-    output_name = "features/3-10-15"
+    output_name = "features/3-11-15"
 
-    # train data
-    extractor = FeatWriter(features, 'coref-trainset.gold',
-                           output_name=output_name)
-    extractor.write_features()
-     
-    # dev data
-    extractor = FeatWriter(features, 'coref-devset.gold',
-                           output_name=output_name)
-    extractor.write_features(train=False)
+#     # train data
+#     extractor = FeatWriter(features, 'coref-trainset.gold',
+#                            output_name=output_name)
+#     extractor.write_features()
+#      
+#     # dev data
+#     extractor = FeatWriter(features, 'coref-devset.gold',
+#                            output_name=output_name)
+#     extractor.write_features(train=False)
      
     # test data
     extractor = FeatWriter(features, 'coref-testset.gold',
-                           output_name="features/final_fixed")
+                           output_name="features/bees")
     extractor.write_features(train=False)
