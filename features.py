@@ -179,5 +179,4 @@ def simple_token_distance(pair):
     
 def extended_token_distance(pair):
     """ simplified joining of sentence and token distance"""
-    mention_a, mention_b = pair.mentions
     return abs(100 * sentence_distance(pair)) + abs(simple_token_distance(pair))
